@@ -1,12 +1,15 @@
 package com.capstone.blockchainand;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.capstone.blockchainand.MainTabMenu.MainViewPagerAdapter;
 
@@ -16,6 +19,7 @@ public class MainTabMenuActivity extends AppCompatActivity {
     private TextView tvChannelTitle;
     private TabLayout MainMenuTabLayout;
     private ViewPager MainMenuViewPager;
+    private FloatingActionButton fabMenuButton;
 
     private String mChannelTitle;
     @Override
@@ -42,6 +46,14 @@ public class MainTabMenuActivity extends AppCompatActivity {
         tvChannelTitle = findViewById(R.id.tvTopChannelTitle);
         MainMenuTabLayout = findViewById(R.id.MainMenuTabLayout);
         MainMenuViewPager = findViewById(R.id.MainMenuViewPager);
+        fabMenuButton = findViewById(R.id.fabMenuButton);
+
+        fabMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainTabMenuActivity.this, "버튼 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setTabMenu(FragmentManager FM) {
