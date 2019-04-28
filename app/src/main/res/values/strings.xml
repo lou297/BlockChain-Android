@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BlockChainAnd</string>
+
+    <string name="no_infomation">정보 불러오기 실패</string>
+    
+    //MainMenuTab
+    <string name="details_of_usage">사용내역</string>
+    <string name="asset_status">자산현황</string>
+    <string name="group_info">단체정보</string>
+</resources>
