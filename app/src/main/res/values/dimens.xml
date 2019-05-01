@@ -13,4 +13,9 @@
     //floating but
     <dimen name="pressedTranslationZ">12dp</dimen>
     <dimen name="elevation_depth">6dp</dimen>
+
+    <dimen name="fab_menu_layout_margin">70dp</dimen>
+    <dimen name="fab_menu_layout_margin_top">20dp</dimen>
+    <dimen name="fab_menu_txt_size">24sp</dimen>
+    <dimen name="fab_menu_etx_margin_start">15dp</dimen>
 </resources>

@@ -36,6 +36,7 @@
         android:layout_marginBottom="@dimen/floating_but_margin3"
         android:backgroundTint="#FFFFFF"
         android:elevation="@dimen/elevation_depth"
+        android:src="@drawable/ic_c"
         android:visibility="invisible"
         app:pressedTranslationZ="@dimen/pressedTranslationZ" />
 
@@ -49,6 +50,7 @@
         android:layout_marginBottom="@dimen/floating_but_margin2"
         android:backgroundTint="#FFFFFF"
         android:elevation="@dimen/elevation_depth"
+        android:src="@drawable/ic_d"
         android:visibility="invisible"
         app:pressedTranslationZ="@dimen/pressedTranslationZ" />
 

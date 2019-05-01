@@ -13,7 +13,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.capstone.blockchainand.MainTabMenu.MainViewPagerAdapter;
+import com.capstone.blockchainand.FloatingMenuActivity.CreateActivity;
+import com.capstone.blockchainand.FloatingMenuActivity.DonateActivity;
+import com.capstone.blockchainand.MainTabMenu.ViewPagerAdapter.MainViewPagerAdapter;
 
 import static com.capstone.blockchainand.Keys.DataKey.ChannelTitle;
 
@@ -124,12 +126,21 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.fabMenuButton2:
                 animFloatingBut();
-                Toast.makeText(this, "Donate", Toast.LENGTH_SHORT).show();
+                Intent donateIntent = new Intent(this, DonateActivity.class);
+                donateIntent.putExtra(ChannelTitle, mChannelTitle);
                 break;
             case R.id.fabMenuButton3:
                 animFloatingBut();
-                Toast.makeText(this, "Create", Toast.LENGTH_SHORT).show();
+                Intent createIntent = new Intent(this, CreateActivity.class);
+                createIntent.putExtra(ChannelTitle, mChannelTitle);
                 break;
         }
+    }
+
+
+
+    //fragment간 통신
+    public String returnChannelTitle() {
+        return mChannelTitle;
     }
 }

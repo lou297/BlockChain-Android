@@ -3,10 +3,12 @@ package com.capstone.blockchainand;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,21 +64,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendListRequest() {
-        String url = "http://localhost:8989/channels";
+        String url = "http://192.168.0.6:8989/channels";
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.GET,
+                Request.Method.POST,
                 url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Toast.makeText(MainActivity.this, "통신 성공", Toast.LENGTH_SHORT).show();
                         handleResponse(response);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, "통신에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -96,8 +99,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadList() {
-        if(mChannelList != null )
+        if(mChannelList != null ) {
+            if(mChannelList.size() == 0)
+                Toast.makeText(this, "채널이 0개 입니다.", Toast.LENGTH_SHORT).show();
             setListView(mChannelList);
+        }
         else
             Toast.makeText(this, "통신에 성공했으나 목록을 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
     }
@@ -131,5 +137,26 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(MainActivity.this, "잘못된 리스트 입니다.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1 && grantResults.length == 1) {
+            boolean check = true;
+
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                //권한을 확인 받은 경우 요청을 보낸다.
+                sendListRequest();
+            }
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

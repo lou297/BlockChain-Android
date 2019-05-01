@@ -6,7 +6,7 @@
     //Activity Label
     <string name="main_activity_label">채널 목록</string>
     <string name="tab_menu_activity_label">채널 상세보기</string>
-    
+
     //MainMenuTab
     <string name="details_of_usage">사용내역</string>
     <string name="asset_status">자산현황</string>
