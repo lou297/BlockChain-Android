@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,13 +17,18 @@ import com.capstone.blockchainand.MainTabMenu.MainViewPagerAdapter;
 
 import static com.capstone.blockchainand.Keys.DataKey.ChannelTitle;
 
-public class MainTabMenuActivity extends AppCompatActivity {
+public class MainTabMenuActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvChannelTitle;
     private TabLayout MainMenuTabLayout;
     private ViewPager MainMenuViewPager;
-    private FloatingActionButton fabMenuButton;
+
+    //Floating Anim
+    private Animation fab_open, fab_close;
+    private Boolean isFabOpen = false;
+    private FloatingActionButton fabMenuButton1, fabMenuButton3, fabMenuButton2;
 
     private String mChannelTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,17 +53,20 @@ public class MainTabMenuActivity extends AppCompatActivity {
         tvChannelTitle = findViewById(R.id.tvTopChannelTitle);
         MainMenuTabLayout = findViewById(R.id.MainMenuTabLayout);
         MainMenuViewPager = findViewById(R.id.MainMenuViewPager);
-        fabMenuButton = findViewById(R.id.fabMenuButton);
+        fabMenuButton1 = findViewById(R.id.fabMenuButton1);
+        fabMenuButton2 = findViewById(R.id.fabMenuButton2);
+        fabMenuButton3 = findViewById(R.id.fabMenuButton3);
 
-        fabMenuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainTabMenuActivity.this, "버튼 클릭", Toast.LENGTH_SHORT).show();
-            }
-        });
+        fabMenuButton1.setOnClickListener(this);
+        fabMenuButton2.setOnClickListener(this);
+        fabMenuButton3.setOnClickListener(this);
+
+        fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close);
     }
 
     private void setTabMenu(FragmentManager FM) {
+        //TabLayout과 ViewPager 합치기
         MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.details_of_usage)));
         MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.asset_status)));
         MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.group_info)));
@@ -88,4 +98,38 @@ public class MainTabMenuActivity extends AppCompatActivity {
 
     }
 
+    private void animFloatingBut() {
+        if (isFabOpen) {
+            fabMenuButton3.startAnimation(fab_close);
+            fabMenuButton2.startAnimation(fab_close);
+            fabMenuButton3.setClickable(false);
+            fabMenuButton2.setClickable(false);
+            isFabOpen = false;
+        } else {
+            fabMenuButton3.startAnimation(fab_open);
+            fabMenuButton2.startAnimation(fab_open);
+            fabMenuButton3.setClickable(true);
+            fabMenuButton2.setClickable(true);
+            isFabOpen = true;
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.fabMenuButton1:
+                animFloatingBut();
+                break;
+            case R.id.fabMenuButton2:
+                animFloatingBut();
+                Toast.makeText(this, "Donate", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fabMenuButton3:
+                animFloatingBut();
+                Toast.makeText(this, "Create", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

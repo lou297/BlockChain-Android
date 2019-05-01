@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:padding="@dimen/channel_title_padding"
         android:gravity="center"
+        android:padding="@dimen/channel_title_padding"
         android:textSize="@dimen/channel_title"
         android:textStyle="bold" />
 
@@ -26,14 +27,39 @@
         android:layout_below="@id/MainMenuTabLayout" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabMenuButton"
+        android:id="@+id/fabMenuButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/floating_but_margin"
-        android:layout_marginTop="@dimen/floating_but_margin"
         android:layout_marginEnd="@dimen/floating_but_margin"
-        android:layout_marginBottom="@dimen/floating_but_margin" />
+        android:layout_marginBottom="@dimen/floating_but_margin3"
+        android:backgroundTint="#FFFFFF"
+        android:elevation="@dimen/elevation_depth"
+        android:visibility="invisible"
+        app:pressedTranslationZ="@dimen/pressedTranslationZ" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabMenuButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/floating_but_margin"
+        android:layout_marginBottom="@dimen/floating_but_margin2"
+        android:backgroundTint="#FFFFFF"
+        android:elevation="@dimen/elevation_depth"
+        android:visibility="invisible"
+        app:pressedTranslationZ="@dimen/pressedTranslationZ" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabMenuButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/floating_but_margin"
+        android:elevation="@dimen/elevation_depth"
+        app:pressedTranslationZ="@dimen/pressedTranslationZ" />
 
 </RelativeLayout>
