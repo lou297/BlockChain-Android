@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,16 +22,22 @@ import com.capstone.blockchainand.MainActivity;
 import com.capstone.blockchainand.MainTabMenuActivity;
 import com.capstone.blockchainand.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
+import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
 
 public class AssetMenuFragment extends Fragment {
 
     private TextView tvResult;
     private MainTabMenuActivity mActivity;
+    private String mChannelTitle;
 
     @Override
     public void onAttach(Context context) {
         mActivity = (MainTabMenuActivity) getActivity();
+        mChannelTitle = mActivity.returnChannelTitle();
         super.onAttach(context);
     }
 
@@ -77,12 +84,18 @@ public class AssetMenuFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if(mActivity != null) {
-                            Toast.makeText(mActivity, error.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(mActivity, "자산 현황 (channels/block)에서 에러 발생" + error.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 }
-
-        );
+        ){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put(CHANNEL_NAME, mChannelTitle);
+                return params;
+            }
+        };
 
         requestQueue.add(stringRequest);
     }

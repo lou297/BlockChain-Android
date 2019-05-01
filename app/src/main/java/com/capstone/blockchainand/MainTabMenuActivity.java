@@ -128,11 +128,13 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
                 animFloatingBut();
                 Intent donateIntent = new Intent(this, DonateActivity.class);
                 donateIntent.putExtra(ChannelTitle, mChannelTitle);
+                startActivity(donateIntent);
                 break;
             case R.id.fabMenuButton3:
                 animFloatingBut();
                 Intent createIntent = new Intent(this, CreateActivity.class);
                 createIntent.putExtra(ChannelTitle, mChannelTitle);
+                startActivity(createIntent);
                 break;
         }
     }

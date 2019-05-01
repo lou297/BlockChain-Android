@@ -30,10 +30,12 @@ public class UsageMenuFragment extends Fragment {
 
     private TextView tvResult;
     private MainTabMenuActivity mActivity;
+    private String mChannelTitle;
 
     @Override
     public void onAttach(Context context) {
         mActivity = (MainTabMenuActivity) getActivity();
+        mChannelTitle = mActivity.returnChannelTitle();
         super.onAttach(context);
     }
 
@@ -55,11 +57,12 @@ public class UsageMenuFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        sendUsageRequest();
         super.onActivityCreated(savedInstanceState);
     }
 
-    private void sendAssetRequest() {
-        String url = "http://192.168.0.6:8989/channels";
+    private void sendUsageRequest() {
+        String url = "http://192.168.0.6:8989/channels/ledger";
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -77,7 +80,7 @@ public class UsageMenuFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if(mActivity != null) {
-                            Toast.makeText(mActivity, error.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(mActivity, "사용 내역 (channels/ledger)에서 에러 발생"+ error.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 }
@@ -85,7 +88,7 @@ public class UsageMenuFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put(CHANNEL_NAME, mActivity.returnChannelTitle());
+                params.put(CHANNEL_NAME, mChannelTitle);
                 return params;
             }
         };

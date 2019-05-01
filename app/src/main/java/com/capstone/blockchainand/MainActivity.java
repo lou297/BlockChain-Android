@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://192.168.0.6:8989/channels";
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
+                Request.Method.GET,
                 url,
                 new Response.Listener<String>() {
                     @Override

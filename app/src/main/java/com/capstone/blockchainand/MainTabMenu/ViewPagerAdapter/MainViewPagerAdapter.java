@@ -16,22 +16,16 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Fragment presentFragment = null;
         switch (position) {
             case 0:
-                presentFragment = new UsageMenuFragment();
-                break;
+                return new UsageMenuFragment();
             case 1:
-                presentFragment = new AssetMenuFragment();
-                break;
+                return new AssetMenuFragment();
             case 2:
-                presentFragment = new InfoMenuFragment();
-                break;
+                return new InfoMenuFragment();
+            default:
+                return null;
         }
-        if(presentFragment == null) {
-            presentFragment = new UsageMenuFragment();
-        }
-        return presentFragment;
     }
 
     @Override
