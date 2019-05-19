@@ -6,6 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +23,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.capstone.blockchainand.MainTabMenuActivity;
 import com.capstone.blockchainand.R;
+import com.capstone.blockchainand.UsageListView.UsageData;
+import com.capstone.blockchainand.UsageListView.UsageRecyclerAdapter;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,8 +38,8 @@ import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
 import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class UsageMenuFragment extends Fragment {
+    private RecyclerView rvUsageList;
 
-    private TextView tvResult;
     private MainTabMenuActivity mActivity;
     private String mChannelTitle;
 
@@ -53,7 +62,7 @@ public class UsageMenuFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_usage_menu, container, false);
-        tvResult = viewGroup.findViewById(R.id.tvResult);
+        rvUsageList = viewGroup.findViewById(R.id.rvUsageList);
         return viewGroup;
     }
 
@@ -96,6 +105,25 @@ public class UsageMenuFragment extends Fragment {
     }
 
     private void handleResponse(String response) {
-        tvResult.append(response);
+        Log.d("Usage Result", response);
+        Gson gson = new Gson();
+        UsageData[] usageResult = gson.fromJson(response, UsageData[].class);
+        ArrayList<UsageData> usageList = new ArrayList<>(Arrays.asList(usageResult));
+
+        setRecyclerView(usageList);
+    }
+
+    private void setRecyclerView(ArrayList<UsageData> usageList) {
+        if(usageList != null) {
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mActivity);
+            rvUsageList.setLayoutManager(layoutManager);
+
+            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mActivity, ((LinearLayoutManager) layoutManager).getOrientation());
+            rvUsageList.addItemDecoration(dividerItemDecoration);
+
+            UsageRecyclerAdapter adapter = new UsageRecyclerAdapter(mActivity, mChannelTitle, usageList);
+
+            rvUsageList.setAdapter(adapter);
+        }
     }
 }

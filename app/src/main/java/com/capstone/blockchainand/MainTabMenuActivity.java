@@ -17,7 +17,7 @@ import com.capstone.blockchainand.FloatingMenuActivity.CreateActivity;
 import com.capstone.blockchainand.FloatingMenuActivity.DonateActivity;
 import com.capstone.blockchainand.MainTabMenu.ViewPagerAdapter.MainViewPagerAdapter;
 
-import static com.capstone.blockchainand.Keys.DataKey.ChannelTitle;
+import static com.capstone.blockchainand.Keys.DataKey.CHANELL_TITLE;
 
 public class MainTabMenuActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvChannelTitle;
@@ -25,9 +25,7 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
     private ViewPager MainMenuViewPager;
 
     //Floating Anim
-    private Animation fab_open, fab_close;
-    private Boolean isFabOpen = false;
-    private FloatingActionButton fabMenuButton1, fabMenuButton3, fabMenuButton2;
+    private FloatingActionButton fabCreate;
 
     private String mChannelTitle;
 
@@ -55,16 +53,10 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
         tvChannelTitle = findViewById(R.id.tvTopChannelTitle);
         MainMenuTabLayout = findViewById(R.id.MainMenuTabLayout);
         MainMenuViewPager = findViewById(R.id.MainMenuViewPager);
-        fabMenuButton1 = findViewById(R.id.fabMenuButton1);
-        fabMenuButton2 = findViewById(R.id.fabMenuButton2);
-        fabMenuButton3 = findViewById(R.id.fabMenuButton3);
+        fabCreate = findViewById(R.id.fabCreate);
 
-        fabMenuButton1.setOnClickListener(this);
-        fabMenuButton2.setOnClickListener(this);
-        fabMenuButton3.setOnClickListener(this);
+        fabCreate.setOnClickListener(this);
 
-        fab_open = AnimationUtils.loadAnimation(this, R.anim.fab_open);
-        fab_close = AnimationUtils.loadAnimation(this, R.anim.fab_close);
     }
 
     private void setTabMenu(FragmentManager FM) {
@@ -101,7 +93,7 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
     private void loadTitle(Intent intent) {
         //MainActivity의 리스트에서 선택된 채널이름 불러오기.
         if(intent != null) {
-            mChannelTitle = intent.getStringExtra(ChannelTitle);
+            mChannelTitle = intent.getStringExtra(CHANELL_TITLE);
 
             if(mChannelTitle != null) {
                 tvChannelTitle.setText(mChannelTitle);
@@ -116,40 +108,30 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void animFloatingBut() {
-        if (isFabOpen) {
-            fabMenuButton3.startAnimation(fab_close);
-            fabMenuButton2.startAnimation(fab_close);
-            fabMenuButton3.setClickable(false);
-            fabMenuButton2.setClickable(false);
-            isFabOpen = false;
-        } else {
-            fabMenuButton3.startAnimation(fab_open);
-            fabMenuButton2.startAnimation(fab_open);
-            fabMenuButton3.setClickable(true);
-            fabMenuButton2.setClickable(true);
-            isFabOpen = true;
-        }
-    }
+//    private void animFloatingBut() {
+//        if (isFabOpen) {
+//            fabMenuButton3.startAnimation(fab_close);
+//            fabMenuButton2.startAnimation(fab_close);
+//            fabMenuButton3.setClickable(false);
+//            fabMenuButton2.setClickable(false);
+//            isFabOpen = false;
+//        } else {
+//            fabMenuButton3.startAnimation(fab_open);
+//            fabMenuButton2.startAnimation(fab_open);
+//            fabMenuButton3.setClickable(true);
+//            fabMenuButton2.setClickable(true);
+//            isFabOpen = true;
+//        }
+//    }
 
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.fabMenuButton1:
-                animFloatingBut();
-                break;
-            case R.id.fabMenuButton2:
-                animFloatingBut();
-                Intent donateIntent = new Intent(this, DonateActivity.class);
-                donateIntent.putExtra(ChannelTitle, mChannelTitle);
-                startActivity(donateIntent);
-                break;
-            case R.id.fabMenuButton3:
-                animFloatingBut();
+            case R.id.fabCreate:
                 Intent createIntent = new Intent(this, CreateActivity.class);
-                createIntent.putExtra(ChannelTitle, mChannelTitle);
+                createIntent.putExtra(CHANELL_TITLE, mChannelTitle);
                 startActivity(createIntent);
                 break;
         }

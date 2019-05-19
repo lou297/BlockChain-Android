@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/asset_view_padding">
+
+    <TextView
+        android:id="@+id/tvAssetNumber"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:textColor="@color/BLACK" />
+
+    <TextView
+        android:id="@+id/tvAssetPrevious"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:textColor="@color/BLACK" />
+
+    <TextView
+        android:id="@+id/tvAssetData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/asset_view_padding"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:textColor="@color/BLACK" />
+
+
+</LinearLayout>

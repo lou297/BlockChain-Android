@@ -19,7 +19,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID"
+                android:text="@string/channel_name"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+
+            <TextView
+                android:id="@+id/tvCreateChannelName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:layout_marginBottom="@dimen/fab_menu_line_margin"
+                android:textColor="@color/BLACK" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/id"
+                android:textColor="@color/BLACK"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
@@ -28,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
                 android:inputType="text"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/BLACK" />
         </LinearLayout>
 
         <LinearLayout
@@ -39,7 +62,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAME"
+                android:text="@string/group_name"
+                android:textColor="@color/BLACK"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
@@ -48,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
                 android:inputType="text"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/BLACK" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,7 +84,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MONEY"
+                android:text="@string/money"
+                android:textColor="@color/BLACK"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
@@ -68,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
                 android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/BLACK" />
         </LinearLayout>
 
         <LinearLayout

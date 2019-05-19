@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "MainActivity 오류" + error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         String title = (String) mChannelList.get(position);
         if(title != null) {
-            intent.putExtra(ChannelTitle, title);
+            intent.putExtra(CHANELL_TITLE, title);
             startActivity(intent);
         } else {
             Toast.makeText(MainActivity.this, "잘못된 리스트 입니다.", Toast.LENGTH_SHORT).show();

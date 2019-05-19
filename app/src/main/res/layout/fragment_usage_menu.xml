@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvResult"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/asset_layout_padding"
+        android:paddingTop="@dimen/usage_layout_padding"
+        android:paddingEnd="@dimen/asset_layout_padding">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="@string/usage_id"
+            android:textColor="@color/BLACK" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/usage_text_view_size"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/usage_group"
+            android:textColor="@color/BLACK" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/usage_text_view_size"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="@string/usage_money"
+            android:textColor="@color/BLACK" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/usage_text_view_size"
+            android:layout_weight="2"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvUsageList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

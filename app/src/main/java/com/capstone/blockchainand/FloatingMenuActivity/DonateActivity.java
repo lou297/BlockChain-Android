@@ -3,9 +3,11 @@ package com.capstone.blockchainand.FloatingMenuActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -19,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
-import static com.capstone.blockchainand.Keys.DataKey.ChannelTitle;
+import static com.capstone.blockchainand.Keys.DataKey.CHANELL_TITLE;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.ID;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.MONEY;
@@ -27,13 +29,18 @@ import static com.capstone.blockchainand.Keys.RequestParamsKey.NAME;
 
 import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
+import static com.capstone.blockchainand.Keys.DataKey.*;
 
 public class DonateActivity extends AppCompatActivity {
 
-    private EditText etId;
+    private TextView tvDonateChannel;
+    private TextView tvDonateId;
+    private TextView tvDonateGroup;
     private EditText etMoney;
 
     private String mChannelTitle;
+    private String mDonateId;
+    private String mDonateGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +49,14 @@ public class DonateActivity extends AppCompatActivity {
 
         initView();
         Intent intent = getIntent();
-        loadChannelTitle(intent);
+        loadDonateInfo(intent);
+        parsingId(mDonateId);
     }
 
     private void initView() {
-        etId = findViewById(R.id.etId);
+        tvDonateChannel = findViewById(R.id.tvDonateChannel);
+        tvDonateId = findViewById(R.id.tvDonateId);
+        tvDonateGroup = findViewById(R.id.tvDonateGroup);
         etMoney = findViewById(R.id.etMoney);
 
         Button btnDonate = findViewById(R.id.btnDonate);
@@ -56,6 +66,9 @@ public class DonateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (checkBlank()) {
+                    Log.d("Money",etMoney.getText().toString());
+                    Log.d("DonateId",mDonateId);
+                    Log.d("DonateChannel", mChannelTitle);
                     sendDonateRequest();
                 } else {
                     Toast.makeText(DonateActivity.this, "빈 칸이 존재합니다.", Toast.LENGTH_SHORT).show();
@@ -71,18 +84,25 @@ public class DonateActivity extends AppCompatActivity {
         });
     }
 
-    private void loadChannelTitle(Intent intent) {
+    private void loadDonateInfo(Intent intent) {
         if(intent != null) {
-            mChannelTitle = intent.getStringExtra(ChannelTitle);
+            mChannelTitle = intent.getStringExtra(CHANELL_TITLE);
+            mDonateId = intent.getStringExtra(DONATE_ID);
+            mDonateGroup = intent.getStringExtra(DONATE_GROUP);
+
+            tvDonateChannel.setText(mChannelTitle);
+            tvDonateId.setText(mDonateId);
+            tvDonateGroup.setText(mDonateGroup);
         }
     }
 
-    private boolean checkBlank() {
-        String strId = etId.getText().toString().trim();
-        String strMoney = etMoney.getText().toString().trim();
+    private void parsingId(String donateId) {
+        mDonateId = donateId.substring(7);
 
-        if (strId.length() == 0)
-            return false;
+    }
+
+    private boolean checkBlank() {
+        String strMoney = etMoney.getText().toString().trim();
 
         if (strMoney.length() == 0)
             return false;
@@ -115,7 +135,7 @@ public class DonateActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put(CHANNEL_NAME, mChannelTitle);
-                params.put(ID, etId.getText().toString());
+                params.put(ID, mDonateId);
                 params.put(MONEY, etMoney.getText().toString());
                 return params;
             }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
-import static com.capstone.blockchainand.Keys.DataKey.ChannelTitle;
+import static com.capstone.blockchainand.Keys.DataKey.CHANELL_TITLE;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.ID;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.MONEY;
@@ -31,6 +32,7 @@ import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class CreateActivity extends AppCompatActivity {
 
+    private TextView tvCreateChannelName;
     private EditText etId;
     private EditText etName;
     private EditText etMoney;
@@ -48,6 +50,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        tvCreateChannelName = findViewById(R.id.tvCreateChannelName);
         etId = findViewById(R.id.etId);
         etName = findViewById(R.id.etName);
         etMoney = findViewById(R.id.etMoney);
@@ -76,7 +79,8 @@ public class CreateActivity extends AppCompatActivity {
 
     private void loadChannelTitle(Intent intent) {
         if(intent != null) {
-            mChannelTitle = intent.getStringExtra(ChannelTitle);
+            mChannelTitle = intent.getStringExtra(CHANELL_TITLE);
+            tvCreateChannelName.setText(mChannelTitle);
         }
     }
 

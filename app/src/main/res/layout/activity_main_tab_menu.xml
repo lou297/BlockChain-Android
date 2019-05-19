@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:padding="@dimen/channel_title_padding"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/channel_title"
         android:textStyle="bold" />
 
@@ -27,41 +28,15 @@
         android:layout_below="@id/MainMenuTabLayout" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabMenuButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="@dimen/floating_but_margin"
-        android:layout_marginBottom="@dimen/floating_but_margin3"
-        android:backgroundTint="#FFFFFF"
-        android:elevation="@dimen/elevation_depth"
-        android:src="@drawable/ic_c"
-        android:visibility="invisible"
-        app:pressedTranslationZ="@dimen/pressedTranslationZ" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabMenuButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="@dimen/floating_but_margin"
-        android:layout_marginBottom="@dimen/floating_but_margin2"
-        android:backgroundTint="#FFFFFF"
-        android:elevation="@dimen/elevation_depth"
-        android:src="@drawable/ic_d"
-        android:visibility="invisible"
-        app:pressedTranslationZ="@dimen/pressedTranslationZ" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabMenuButton1"
+        android:id="@+id/fabCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/floating_but_margin"
+        android:backgroundTint="#FFFFFF"
         android:elevation="@dimen/elevation_depth"
+        android:src="@drawable/ic_c"
         app:pressedTranslationZ="@dimen/pressedTranslationZ" />
 
 </RelativeLayout>

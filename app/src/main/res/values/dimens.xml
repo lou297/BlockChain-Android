@@ -16,11 +16,31 @@
 
     <dimen name="fab_menu_layout_margin">70dp</dimen>
     <dimen name="fab_menu_layout_margin_top">20dp</dimen>
-    <dimen name="fab_menu_txt_size">24sp</dimen>
+
+    <dimen name="fab_menu_line_margin">10dp</dimen>
+    <dimen name="fab_menu_txt_size">18dp</dimen>
     <dimen name="fab_menu_etx_margin_start">15dp</dimen>
 
     <dimen name="select_server_layout_padding_bottom">30dp</dimen>
 
+    <dimen name="donate_image_margin">30dp</dimen>
     <dimen name="select_server_text_view_padding">20dp</dimen>
     <dimen name="select_server_text_size">24dp</dimen>
+
+    //usage view
+    <dimen name="usage_layout_padding">16dp</dimen>
+    <dimen name="usage_text_view_size">28dp</dimen>
+    <!--<dimen name="usage_text_size">20dp</dimen>-->
+
+    <dimen name="usage_recycler_text_view_size">14dp</dimen>
+
+
+    //asset view
+    <dimen name="asset_layout_padding">16dp</dimen>
+    <dimen name="asset_list_layout_padding">5dp</dimen>
+    <dimen name="asset_view_padding">10dp</dimen>
+    <dimen name="asset_title_view_size">28dp</dimen>
+    <!--<dimen name="asset_text_size">20dp</dimen>-->
+
+    <dimen name="asset_recycler_text_view_size">14dp</dimen>
 </resources>

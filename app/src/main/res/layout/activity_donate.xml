@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,31 +14,79 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_menu_line_margin"
             android:orientation="horizontal">
-            <TextView
-                android:text="ID"
-                android:textSize="@dimen/fab_menu_txt_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/etId"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/channel_name"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+
+            <TextView
+                android:id="@+id/tvDonateChannel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_menu_line_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/id"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+
+            <TextView
+                android:id="@+id/tvDonateId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:text="MONEY"
-                android:textSize="@dimen/fab_menu_txt_size"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/group_name"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+
+            <TextView
+                android:id="@+id/tvDonateGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/donate_money"
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
                 android:id="@+id/etMoney"
@@ -47,25 +94,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
                 android:inputType="numberDecimal"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@color/BLACK" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/fab_menu_layout_margin_top"
             android:gravity="center"
-            android:layout_marginTop="@dimen/fab_menu_layout_margin_top">
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnDonate"
-                android:text="기부"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="기부" />
+
             <Button
                 android:id="@+id/btnCancel"
-                android:text="취소"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="취소" />
         </LinearLayout>
 
 

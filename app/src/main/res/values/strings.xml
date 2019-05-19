@@ -15,6 +15,14 @@
     <string name="asset_status">자산현황</string>
     <string name="group_info">단체정보</string>
 
+    //Create, Donate
+    <string name="channel_name">채널</string>
+    <string name="id">ID</string>
+    <string name="group_name">단체</string>
+    <string name="money">금액</string>
+    <string name="donate_money">기부금액</string>
+
+
     //ServerBtn
     <string name="local_server">로컬 서버</string>
     <string name="tokyo_server">도쿄 서버</string>
@@ -24,5 +32,17 @@
     <string name="explain_about_block_chain">프라이빗 블록체인의\n거래내역 신뢰성과 투명성을 통해\n
     건강한 기부 문화를 만들고자 합니다</string>
 
+
+    //Usage Tab Fragment
+    <string name="usage_id">ID</string>
+    <string name="usage_group">단체</string>
+    <string name="usage_money">금액</string>
+    <string name="usage_donate">기부하기</string>
+
+
+    //Asset activity
+    <string name="asset_number">Number</string>
+    <string name="asset_previous">Previous Hash</string>
+    <string name="asset_date">Data Hash</string>
 
 </resources>
