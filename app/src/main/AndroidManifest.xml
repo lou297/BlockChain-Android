@@ -11,16 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FloatingMenuActivity.CreateActivity"></activity>
-        <activity android:name=".FloatingMenuActivity.DonateActivity" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/main_activity_label">
+            android:name=".ServerSelectActivity"
+            android:label="@string/select_server_activity_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".FloatingMenuActivity.CreateActivity"
+            android:label="@string/create_activity_label"/>
+        <activity
+            android:name=".FloatingMenuActivity.DonateActivity"
+            android:label="@string/donate_activity_label"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/main_activity_label">
         </activity>
         <activity
             android:name=".MainTabMenuActivity"

@@ -4,11 +4,25 @@
     <string name="no_infomation">정보 불러오기 실패</string>
 
     //Activity Label
+    <string name="select_server_activity_label">서버 선택</string>
     <string name="main_activity_label">채널 목록</string>
     <string name="tab_menu_activity_label">채널 상세보기</string>
+    <string name="donate_activity_label">기부</string>
+    <string name="create_activity_label">생성</string>
 
     //MainMenuTab
     <string name="details_of_usage">사용내역</string>
     <string name="asset_status">자산현황</string>
     <string name="group_info">단체정보</string>
+
+    //ServerBtn
+    <string name="local_server">로컬 서버</string>
+    <string name="tokyo_server">도쿄 서버</string>
+    <string name="osaka_server">오사카 서버</string>
+
+    //server activity
+    <string name="explain_about_block_chain">프라이빗 블록체인의\n거래내역 신뢰성과 투명성을 통해\n
+    건강한 기부 문화를 만들고자 합니다</string>
+
+
 </resources>

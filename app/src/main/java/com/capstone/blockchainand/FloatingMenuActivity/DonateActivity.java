@@ -25,6 +25,9 @@ import static com.capstone.blockchainand.Keys.RequestParamsKey.ID;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.MONEY;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.NAME;
 
+import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
+import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
+
 public class DonateActivity extends AppCompatActivity {
 
     private EditText etId;
@@ -88,10 +91,10 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     private void sendDonateRequest() {
-        String url = "http://192.168.0.6:8989/channels/donate";
+        String url = LOAD_SERVER_URL + DONATE_REQUEST;
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
+                Request.Method.PUT,
                 url,
                 new Response.Listener<String>() {
                     @Override

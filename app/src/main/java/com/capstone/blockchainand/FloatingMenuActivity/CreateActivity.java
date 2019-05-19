@@ -25,6 +25,9 @@ import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.ID;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.MONEY;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.NAME;
+import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
+
+import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -95,10 +98,10 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void sendCreateRequest() {
-        String url = "http://192.168.0.6:8989/channels/create";
+        String url = LOAD_SERVER_URL + CREATE_REQUEST;
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
+                Request.Method.PUT,
                 url,
                 new Response.Listener<String>() {
                     @Override

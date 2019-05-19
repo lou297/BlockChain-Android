@@ -79,6 +79,22 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
             MainMenuViewPager.setAdapter(mainViewPagerAdapter);
 
             MainMenuViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(MainMenuTabLayout));
+            MainMenuTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    MainMenuViewPager.setCurrentItem(tab.getPosition());
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+
+                }
+            });
         }
     }
 

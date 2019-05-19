@@ -27,6 +27,8 @@ import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
+import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
+import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class AssetMenuFragment extends Fragment {
 
@@ -66,17 +68,14 @@ public class AssetMenuFragment extends Fragment {
     }
 
     private void sendAssetRequest() {
-        String url = "http://192.168.0.6:8989/channels/block";
+        String url = LOAD_SERVER_URL+BLOCK_REQUEST;
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
+                Request.Method.GET,
                 url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(mActivity != null) {
-                            Toast.makeText(mActivity, "통신 성공", Toast.LENGTH_SHORT).show();
-                        }
                         handleResponse(response);
                     }
                 },

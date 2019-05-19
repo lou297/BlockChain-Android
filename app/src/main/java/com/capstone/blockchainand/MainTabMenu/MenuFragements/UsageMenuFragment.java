@@ -25,6 +25,8 @@ import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
+import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
+import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class UsageMenuFragment extends Fragment {
 
@@ -62,17 +64,14 @@ public class UsageMenuFragment extends Fragment {
     }
 
     private void sendUsageRequest() {
-        String url = "http://192.168.0.6:8989/channels/ledger";
+        String url = LOAD_SERVER_URL + LEDGER_REQUEST;
 
         StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
+                Request.Method.GET,
                 url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(mActivity != null) {
-                            Toast.makeText(mActivity, "통신 성공", Toast.LENGTH_SHORT).show();
-                        }
                         handleResponse(response);
                     }
                 },

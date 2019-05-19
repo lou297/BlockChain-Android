@@ -30,8 +30,10 @@ import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
 import static com.capstone.blockchainand.Keys.DataKey.*;
+import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class MainActivity extends AppCompatActivity {
+    public static String LOAD_SERVER_URL = "http://34.85.90.33:8989";
     private ListView ChannelListView;
     private ArrayList mChannelList;
     @Override
@@ -40,39 +42,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
-        startAppSetting();
+        Intent intent = getIntent();
+        startAppSetting(intent);
     }
 
     private void initView() {
         ChannelListView = findViewById(R.id.MainChannelListView);
     }
 
-    private void startAppSetting() {
+    private void startAppSetting(Intent intent) {
         if(requestQueue == null)
             requestQueue = Volley.newRequestQueue(this);
 
-        //인터넷 권한 확인 후, 인터넷 권한 있을 시에 서버로 요청 보낸다.
-        String[] requiredPermissions = {Manifest.permission.INTERNET};
-        int requestPermissionCode = 1;
-        //permission 확인
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
-        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            sendListRequest();
+        if(intent != null) {
+            LOAD_SERVER_URL = intent.getStringExtra(SERVER_URL);
         } else {
-            ActivityCompat.requestPermissions(this, requiredPermissions, requestPermissionCode);
+            Toast.makeText(this, "서버를 읽지 못했습니다.", Toast.LENGTH_SHORT).show();
+            finish();
         }
+
+        sendListRequest();
     }
 
     private void sendListRequest() {
-        String url = "http://192.168.0.6:8989/channels";
-
+        String url = LOAD_SERVER_URL + CHANNEL_LIST_REQUESTE;
         StringRequest stringRequest = new StringRequest(
                 Request.Method.GET,
                 url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(MainActivity.this, "통신 성공", Toast.LENGTH_SHORT).show();
                         handleResponse(response);
                     }
                 },
@@ -139,24 +138,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 1 && grantResults.length == 1) {
-            boolean check = true;
-
-            for (int result : grantResults) {
-                if (result != PackageManager.PERMISSION_GRANTED) {
-                    check = false;
-                    break;
-                }
-            }
-
-            if (check) {
-                //권한을 확인 받은 경우 요청을 보낸다.
-                sendListRequest();
-            }
-        }
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
 }
