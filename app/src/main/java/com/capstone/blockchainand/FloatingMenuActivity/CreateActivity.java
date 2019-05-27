@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class CreateActivity extends AppCompatActivity {
 
+    private ImageView ivBackButton;
     private TextView tvCreateChannelName;
     private EditText etId;
     private EditText etName;
@@ -50,6 +52,9 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        getSupportActionBar().hide();
+
+        ivBackButton = findViewById(R.id.ivBackButton);
         tvCreateChannelName = findViewById(R.id.tvCreateChannelName);
         etId = findViewById(R.id.etId);
         etName = findViewById(R.id.etName);
@@ -57,6 +62,13 @@ public class CreateActivity extends AppCompatActivity {
 
         Button btnCreate = findViewById(R.id.btnDonate);
         Button btnCancel = findViewById(R.id.btnCancel);
+
+        ivBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,39 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/TitleLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="@dimen/edit_text_width"
+        <ImageView
+            android:id="@+id/ivBackButton"
+            android:layout_width="@dimen/title_back_iv_size"
+            android:layout_height="@dimen/title_back_iv_size"
+            android:layout_marginEnd="@dimen/title_margin_start"
+            android:background="@drawable/blue_back_button" />
+
+        <TextView
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/tvTopChannelTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/activity_title"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_bar_height"
+        android:layout_marginStart="@dimen/title_total_margin"
+        android:layout_marginEnd="@dimen/title_total_margin"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/blue_border_light"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/edit_text_padding">
+
+        <EditText
+            android:id="@+id/etSearchChannel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:background="@null"
+            android:fontFamily="@font/nanum_pen"
+            android:hint="@string/search_channel"
             android:inputType="text"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="@dimen/search_bar_text_size" />
 
         <ImageView
-            android:layout_width="@dimen/search_ic_size"
+            android:id="@+id/ivSearchButton"
+            android:layout_width="0dp"
             android:layout_height="@dimen/search_ic_size"
+            android:layout_weight="1"
             android:background="@drawable/ic_search" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="20dp"
-        android:background="@color/colorPrimaryDark" />
 
-    <ListView
-        android:id="@+id/MainChannelListView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/MainChannelRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

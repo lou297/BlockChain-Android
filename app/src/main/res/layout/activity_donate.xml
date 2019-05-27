@@ -2,98 +2,148 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/TitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBackButton"
+            android:layout_width="@dimen/title_back_iv_size"
+            android:layout_height="@dimen/title_back_iv_size"
+            android:layout_marginEnd="@dimen/title_margin_start"
+            android:background="@drawable/blue_back_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/donate_activity_label"
+            android:fontFamily="@font/nanum_pen"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/activity_title"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/fab_menu_layout_margin"
+        android:layout_marginStart="@dimen/fab_menu_layout_margin"
+        android:layout_marginEnd="@dimen/fab_menu_layout_margin"
         android:gravity="start|center_vertical"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
             android:layout_marginBottom="@dimen/fab_menu_line_margin"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:fontFamily="@font/nanum_pen"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/channel_name"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <TextView
                 android:id="@+id/tvDonateChannel"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:fontFamily="@font/nanum_pen"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
-                android:textColor="@color/BLACK"
+                android:layout_weight="5"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
             android:layout_marginBottom="@dimen/fab_menu_line_margin"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/id"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <TextView
                 android:id="@+id/tvDonateId"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum_pen"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
-                android:textColor="@color/BLACK"
+                android:layout_weight="5"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/group_name"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <TextView
                 android:id="@+id/tvDonateGroup"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
-                android:textColor="@color/BLACK"
+                android:layout_weight="5"
+                android:fontFamily="@font/nanum_pen"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/donate_money"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
                 android:id="@+id/etMoney"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:fontFamily="@font/nanum_pen"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:layout_weight="5"
+                android:background="@drawable/blue_border_light"
+                android:hint="@string/money_unit"
                 android:inputType="numberDecimal"
+                android:padding="@dimen/edit_text_padding"
+                android:textSize="@dimen/fab_menu_txt_size"
                 android:singleLine="true"
                 android:textColor="@color/BLACK" />
         </LinearLayout>
@@ -109,13 +159,22 @@
                 android:id="@+id/btnDonate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기부" />
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/blue_border"
+                android:fontFamily="@font/nanum_pen"
+                android:textSize="@dimen/fab_menu_txt_size"
+                android:text="@string/donate"
+                android:textColor="@color/textBlue" />
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="취소" />
+                android:background="@drawable/blue_border"
+                android:text="@string/cancel"
+                android:fontFamily="@font/nanum_pen"
+                android:textSize="@dimen/fab_menu_txt_size"
+                android:textColor="@color/textBlue" />
         </LinearLayout>
 
 

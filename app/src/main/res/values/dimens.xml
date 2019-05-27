@@ -1,46 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="channel_title">32sp</dimen>
+    //title size
+    <dimen name="total_text_size">28dp</dimen>
+    <dimen name="activity_title">28dp</dimen>
     <dimen name="channel_title_padding">20dp</dimen>
+
+    <dimen name="title_bar_height">50dp</dimen>
+    <dimen name="title_back_iv_size">50dp</dimen>
+    <dimen name="title_margin_start">10dp</dimen>
+    <dimen name="title_total_margin">60dp</dimen>
+
+    <dimen name="search_bar_height">40dp</dimen>
+    <dimen name="search_bar_text_size">20dp</dimen>
+
+    //channel list text size
+    <dimen name="channel_list_text_size">24dp</dimen>
 
     <dimen name="floating_but_margin3">150dp</dimen>
     <dimen name="floating_but_margin2">85dp</dimen>
     <dimen name="floating_but_margin">20dp</dimen>
 
     <dimen name="edit_text_width">230dp</dimen>
-    <dimen name="search_ic_size">30dp</dimen>
+    <dimen name="search_ic_size">27dp</dimen>
+
+    <dimen name="edit_text_padding">10dp</dimen>
 
     //floating but
     <dimen name="pressedTranslationZ">12dp</dimen>
     <dimen name="elevation_depth">6dp</dimen>
 
+    <dimen name="fab_menu_top_layout_size">50dp</dimen>
+    <dimen name="fab_menu_top_string_padding">5dp</dimen>
+
+    <dimen name="fab_menu_layout_size">50dp</dimen>
+
     <dimen name="fab_menu_layout_margin">70dp</dimen>
     <dimen name="fab_menu_layout_margin_top">20dp</dimen>
 
     <dimen name="fab_menu_line_margin">10dp</dimen>
-    <dimen name="fab_menu_txt_size">18dp</dimen>
+    <dimen name="fab_menu_txt_size">28dp</dimen>
     <dimen name="fab_menu_etx_margin_start">15dp</dimen>
 
+    //tab menu
+    <dimen name="tab_menu_margin">5dp</dimen>
+    <dimen name="tab_menu_line_size">1dp</dimen>
+
+
+    //usage view
+    <dimen name="usage_layout_padding">10dp</dimen>
+    <dimen name="usage_text_view_size">28dp</dimen>
+    <dimen name="usage_text_size">24dp</dimen>
+    <dimen name="usage_make_group_btn_margin">40dp</dimen>
+    <dimen name="usage_make_group_layout_width">100dp</dimen>
+
+    <dimen name="usage_recycler_text_view_size">24dp</dimen>
+
+
+    //asset view
+    <dimen name="asset_layout_padding">10dp</dimen>
+    <dimen name="asset_list_layout_padding">5dp</dimen>
+    <dimen name="asset_view_padding">10dp</dimen>
+    <dimen name="asset_title_view_size">28dp</dimen>
+    <dimen name="asset_text_size">24dp</dimen>
+
+    <dimen name="asset_recycler_text_view_size">24dp</dimen>
+
+
+
+    //server select
     <dimen name="select_server_layout_padding_bottom">30dp</dimen>
 
     <dimen name="donate_image_margin">30dp</dimen>
     <dimen name="select_server_text_view_padding">20dp</dimen>
-    <dimen name="select_server_text_size">24dp</dimen>
+    <dimen name="select_server_title_size">40dp</dimen>
+    <dimen name="select_server_content_size">28dp</dimen>
+    <dimen name="select_server_bottom_text_size">26dp</dimen>
 
-    //usage view
-    <dimen name="usage_layout_padding">16dp</dimen>
-    <dimen name="usage_text_view_size">28dp</dimen>
-    <!--<dimen name="usage_text_size">20dp</dimen>-->
+    <dimen name="select_server_et_margin_horizon">50dp</dimen>
+    <dimen name="select_server_et_margin_between">10dp</dimen>
 
-    <dimen name="usage_recycler_text_view_size">14dp</dimen>
+    <dimen name="select_server_log_out_icon_size">50dp</dimen>
+    <dimen name="select_server_log_out_icon_margin">10dp</dimen>
 
-
-    //asset view
-    <dimen name="asset_layout_padding">16dp</dimen>
-    <dimen name="asset_list_layout_padding">5dp</dimen>
-    <dimen name="asset_view_padding">10dp</dimen>
-    <dimen name="asset_title_view_size">28dp</dimen>
-    <!--<dimen name="asset_text_size">20dp</dimen>-->
-
-    <dimen name="asset_recycler_text_view_size">14dp</dimen>
+    <dimen name="regist_activity_text_size">24dp</dimen>
 </resources>

@@ -14,11 +14,11 @@ import java.util.ArrayList;
 
 public class AssetRecyclerAdapter extends RecyclerView.Adapter<AssetRecyclerAdapter.ViewHolder> {
     Context context;
-    ArrayList<AssetData> assetList;
+    ArrayList<ArrayList<String>> DonateList;
 
-    public AssetRecyclerAdapter(Context context, ArrayList<AssetData> assetList) {
+    public AssetRecyclerAdapter(Context context, ArrayList<ArrayList<String>> DonateList) {
         this.context = context;
-        this.assetList = assetList;
+        this.DonateList = DonateList;
     }
 
     @NonNull
@@ -31,32 +31,32 @@ public class AssetRecyclerAdapter extends RecyclerView.Adapter<AssetRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        AssetData assetData = assetList.get(i);
+         ArrayList<String> Donate = DonateList.get(i);
 
-        if(assetData != null) {
-            viewHolder.tvAssetNumber.setText(assetData.getNumber());
-            viewHolder.tvAssetPrevious.setText(assetData.getPrevious_hash());
-            viewHolder.tvAssetData.setText(assetData.getData_hash());
+        if(Donate != null) {
+            viewHolder.tvUserId.setText("User2");
+            viewHolder.tvDonateGroup.setText(Donate.get(1).substring(7));
+            viewHolder.tvDonateMoney.setText(Donate.get(2));
         }
     }
 
     @Override
     public int getItemCount() {
-        return assetList.size();
+        return DonateList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvAssetNumber;
-        private TextView tvAssetPrevious;
-        private TextView tvAssetData;
+        private TextView tvUserId;
+        private TextView tvDonateGroup;
+        private TextView tvDonateMoney;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvAssetNumber = itemView.findViewById(R.id.tvAssetNumber);
-            tvAssetPrevious = itemView.findViewById(R.id.tvAssetPrevious);
-            tvAssetData = itemView.findViewById(R.id.tvAssetData);
+            tvUserId = itemView.findViewById(R.id.tvDonateUserId);
+            tvDonateGroup = itemView.findViewById(R.id.tvDonateGroup);
+            tvDonateMoney = itemView.findViewById(R.id.tvDonateMoney);
         }
     }
 }

@@ -6,5 +6,11 @@
 
     <color name="WHITE">#FFFFFF</color>
     <color name="BLACK">#000000</color>
-    <color name="textBlue">#0C91FF</color>
+    <color name="textBlue">#4271C3</color>
+
+    <color name="borderBlue">#9DBFFF</color>
+    <color name="borderLightBlue">#DAE3F3</color>
+    <color name="backgroundGray">#F2F2F2</color>
+
+    <color name="grayLineColor">#DADADA</color>
 </resources>

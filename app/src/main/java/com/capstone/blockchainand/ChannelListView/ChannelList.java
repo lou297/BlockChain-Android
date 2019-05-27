@@ -1,4 +1,4 @@
-package com.capstone.blockchainand.DataClass;
+package com.capstone.blockchainand.ChannelListView;
 
 import java.util.ArrayList;
 

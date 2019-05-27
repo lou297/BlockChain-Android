@@ -2,100 +2,154 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/TitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBackButton"
+            android:layout_width="@dimen/title_back_iv_size"
+            android:layout_height="@dimen/title_back_iv_size"
+            android:layout_marginEnd="@dimen/title_margin_start"
+            android:background="@drawable/blue_back_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nanum_pen"
+            android:gravity="center"
+            android:text="@string/create_activity_label"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/activity_title"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/fab_menu_layout_margin"
+        android:layout_marginStart="@dimen/fab_menu_layout_margin"
+        android:layout_marginEnd="@dimen/fab_menu_layout_margin"
         android:gravity="start|center_vertical"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/channel_name"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <TextView
                 android:id="@+id/tvCreateChannelName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
-                android:layout_marginBottom="@dimen/fab_menu_line_margin"
-                android:textColor="@color/BLACK" />
+                android:layout_weight="3"
+                android:fontFamily="@font/nanum_pen"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/id"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
                 android:id="@+id/etId"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:layout_weight="3"
+                android:background="@drawable/blue_border_light"
+                android:fontFamily="@font/nanum_pen"
                 android:inputType="text"
+                android:padding="@dimen/edit_text_padding"
                 android:singleLine="true"
-                android:textColor="@color/BLACK" />
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/group_name"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
                 android:id="@+id/etName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:layout_weight="3"
+                android:background="@drawable/blue_border_light"
+                android:fontFamily="@font/nanum_pen"
                 android:inputType="text"
+                android:padding="@dimen/edit_text_padding"
                 android:singleLine="true"
-                android:textColor="@color/BLACK" />
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/fab_menu_layout_size"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nanum_pen"
                 android:text="@string/money"
-                android:textColor="@color/BLACK"
+                android:textColor="@color/textBlue"
                 android:textSize="@dimen/fab_menu_txt_size" />
 
             <EditText
                 android:id="@+id/etMoney"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fab_menu_etx_margin_start"
+                android:layout_weight="3"
+                android:background="@drawable/blue_border_light"
+                android:fontFamily="@font/nanum_pen"
+                android:hint="@string/money_unit"
                 android:inputType="numberDecimal"
+                android:padding="@dimen/edit_text_padding"
                 android:singleLine="true"
-                android:textColor="@color/BLACK" />
+                android:textColor="@color/BLACK"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -109,13 +163,21 @@
                 android:id="@+id/btnDonate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="생성" />
+                android:background="@drawable/blue_border"
+                android:fontFamily="@font/nanum_pen"
+                android:text="@string/create"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/fab_menu_txt_size" />
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="취소" />
+                android:background="@drawable/blue_border"
+                android:fontFamily="@font/nanum_pen"
+                android:text="@string/cancel"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/fab_menu_txt_size" />
         </LinearLayout>
 
 

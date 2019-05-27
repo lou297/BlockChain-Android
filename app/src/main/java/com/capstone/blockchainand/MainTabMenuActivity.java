@@ -1,6 +1,8 @@
 package com.capstone.blockchainand;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +27,7 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
     private TabLayout MainMenuTabLayout;
     private ViewPager MainMenuViewPager;
 
-    //Floating Anim
-    private FloatingActionButton fabCreate;
+    private ImageView ivBackButton;
 
     private String mChannelTitle;
 
@@ -53,9 +55,10 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
         tvChannelTitle = findViewById(R.id.tvTopChannelTitle);
         MainMenuTabLayout = findViewById(R.id.MainMenuTabLayout);
         MainMenuViewPager = findViewById(R.id.MainMenuViewPager);
-        fabCreate = findViewById(R.id.fabCreate);
 
-        fabCreate.setOnClickListener(this);
+        ivBackButton = findViewById(R.id.ivBackButton);
+
+        ivBackButton.setOnClickListener(this);
 
     }
 
@@ -63,7 +66,8 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
         //TabLayout과 ViewPager 합치기
         MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.details_of_usage)));
         MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.asset_status)));
-        MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.group_info)));
+//        MainMenuTabLayout.addTab(MainMenuTabLayout.newTab().setText(getString(R.string.group_info)));
+        MainMenuTabLayout.setTabTextColors(ColorStateList.valueOf(getColor(R.color.textBlue)));
 
         if(FM != null) {
             MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(FM);
@@ -97,44 +101,30 @@ public class MainTabMenuActivity extends AppCompatActivity implements View.OnCli
 
             if(mChannelTitle != null) {
                 tvChannelTitle.setText(mChannelTitle);
+                getSupportActionBar().hide();
             } else {
                 tvChannelTitle.setText(getString(R.string.no_infomation));
             }
         }
     }
 
-    private void loadChannelInfo(String Title) {
-        //선택된 채널에 대한 정보 불러오기
 
-    }
-
-//    private void animFloatingBut() {
-//        if (isFabOpen) {
-//            fabMenuButton3.startAnimation(fab_close);
-//            fabMenuButton2.startAnimation(fab_close);
-//            fabMenuButton3.setClickable(false);
-//            fabMenuButton2.setClickable(false);
-//            isFabOpen = false;
-//        } else {
-//            fabMenuButton3.startAnimation(fab_open);
-//            fabMenuButton2.startAnimation(fab_open);
-//            fabMenuButton3.setClickable(true);
-//            fabMenuButton2.setClickable(true);
-//            isFabOpen = true;
-//        }
-//    }
 
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.fabCreate:
-                Intent createIntent = new Intent(this, CreateActivity.class);
-                createIntent.putExtra(CHANELL_TITLE, mChannelTitle);
-                startActivity(createIntent);
+            case R.id.ivBackButton:
+                finish();
                 break;
         }
+    }
+
+    public void goToMakeGroupActivity() {
+        Intent createIntent = new Intent(this, CreateActivity.class);
+        createIntent.putExtra(CHANELL_TITLE, mChannelTitle);
+        startActivity(createIntent);
     }
 
 

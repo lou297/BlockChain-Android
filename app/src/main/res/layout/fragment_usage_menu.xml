@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/backgroundGray">
+
+    <TextView
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fab_menu_top_layout_size"
+        android:layout_alignParentTop="true"
+        android:background="@color/backgroundGray"
+        android:gravity="bottom|end"
+        android:padding="@dimen/fab_menu_top_string_padding"
+        android:fontFamily="@font/nanum_pen"
+        android:textSize="@dimen/usage_text_size"
+        android:text="@string/fab_menu_top_string"
+        android:textColor="@color/textBlue" />
+
+    <View
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_menu_line_size"
+        android:layout_below="@+id/layout1"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/grayLineColor" />
 
     <LinearLayout
+        android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/layout2"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/WHITE"
         android:orientation="horizontal"
         android:paddingStart="@dimen/asset_layout_padding"
         android:paddingTop="@dimen/usage_layout_padding"
@@ -14,27 +41,38 @@
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_weight="3"
+            android:layout_height="@dimen/usage_text_view_size"
+            android:fontFamily="@font/nanum_pen"
+            android:textSize="@dimen/usage_text_size"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/usage_id"
-            android:textColor="@color/BLACK" />
+            android:textColor="@color/textBlue"
+            android:textStyle="bold" />
+
 
         <TextView
+            android:fontFamily="@font/nanum_pen"
+            android:textSize="@dimen/usage_text_size"
             android:layout_width="0dp"
             android:layout_height="@dimen/usage_text_view_size"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:gravity="center"
             android:text="@string/usage_group"
-            android:textColor="@color/BLACK" />
+            android:textColor="@color/textBlue"
+            android:textStyle="bold" />
+
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="@dimen/usage_text_view_size"
             android:layout_weight="3"
+            android:fontFamily="@font/nanum_pen"
+            android:textSize="@dimen/usage_text_size"
             android:gravity="center"
             android:text="@string/usage_money"
-            android:textColor="@color/BLACK" />
+            android:textColor="@color/textBlue"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="0dp"
@@ -43,8 +81,33 @@
             android:gravity="center" />
     </LinearLayout>
 
+    <View
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_menu_line_size"
+        android:layout_below="@+id/layout3"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/grayLineColor" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvUsageList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout4"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin" />
+
+    <Button
+        android:id="@+id/btnMakeGroup"
+        android:fontFamily="@font/nanum_pen"
+        android:textSize="@dimen/usage_text_size"
+        android:layout_width="@dimen/usage_make_group_layout_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/usage_make_group_btn_margin"
+        android:background="@drawable/blue_border"
+        android:text="@string/usage_make_group"
+        android:textColor="@color/textBlue" />
+</RelativeLayout>

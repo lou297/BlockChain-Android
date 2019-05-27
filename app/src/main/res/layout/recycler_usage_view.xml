@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/WHITE"
     android:orientation="horizontal"
     android:padding="@dimen/usage_layout_padding">
 
@@ -9,37 +10,46 @@
         android:id="@+id/tvUsageId"
         android:layout_width="0dp"
         android:layout_height="@dimen/usage_text_view_size"
-        android:layout_weight="3"
+        android:layout_weight="1"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
         android:lines="1"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/usage_recycler_text_view_size" />
 
     <TextView
         android:id="@+id/tvUsageGroup"
         android:layout_width="0dp"
         android:layout_height="@dimen/usage_text_view_size"
-        android:layout_weight="2"
+        android:layout_weight="4"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
         android:lines="1"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/usage_recycler_text_view_size" />
 
     <TextView
         android:id="@+id/tvUsageMoney"
         android:layout_width="0dp"
         android:layout_height="@dimen/usage_text_view_size"
         android:layout_weight="3"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
         android:lines="1"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/usage_recycler_text_view_size" />
 
     <TextView
         android:id="@+id/btnDonate"
         android:layout_width="0dp"
         android:layout_height="@dimen/usage_text_view_size"
         android:layout_weight="2"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
         android:lines="1"
         android:text="@string/usage_donate"
-        android:textColor="@color/textBlue" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/usage_recycler_text_view_size"
+        android:textStyle="bold" />
 
 </LinearLayout>

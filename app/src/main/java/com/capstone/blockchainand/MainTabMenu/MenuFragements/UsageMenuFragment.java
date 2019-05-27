@@ -1,6 +1,7 @@
 package com.capstone.blockchainand.MainTabMenu.MenuFragements;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.capstone.blockchainand.FloatingMenuActivity.CreateActivity;
 import com.capstone.blockchainand.MainTabMenuActivity;
 import com.capstone.blockchainand.R;
 import com.capstone.blockchainand.UsageListView.UsageData;
@@ -33,12 +36,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
+import static com.capstone.blockchainand.Keys.DataKey.CHANELL_TITLE;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
 import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
 import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
 public class UsageMenuFragment extends Fragment {
     private RecyclerView rvUsageList;
+    private Button btnMakeGroup;
 
     private MainTabMenuActivity mActivity;
     private String mChannelTitle;
@@ -58,11 +63,25 @@ public class UsageMenuFragment extends Fragment {
         super.onDetach();
     }
 
+    @Override
+    public void onResume() {
+        sendUsageRequest();
+        super.onResume();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_usage_menu, container, false);
         rvUsageList = viewGroup.findViewById(R.id.rvUsageList);
+        btnMakeGroup = viewGroup.findViewById(R.id.btnMakeGroup);
+
+        btnMakeGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mActivity.goToMakeGroupActivity();
+            }
+        });
         return viewGroup;
     }
 
@@ -71,6 +90,8 @@ public class UsageMenuFragment extends Fragment {
         sendUsageRequest();
         super.onActivityCreated(savedInstanceState);
     }
+
+
 
     private void sendUsageRequest() {
         String url = LOAD_SERVER_URL + LEDGER_REQUEST;
@@ -118,9 +139,10 @@ public class UsageMenuFragment extends Fragment {
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mActivity);
             rvUsageList.setLayoutManager(layoutManager);
 
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mActivity, ((LinearLayoutManager) layoutManager).getOrientation());
-            rvUsageList.addItemDecoration(dividerItemDecoration);
-
+            if(rvUsageList.getItemDecorationCount() == 0) {
+                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mActivity, ((LinearLayoutManager) layoutManager).getOrientation());
+                rvUsageList.addItemDecoration(dividerItemDecoration);
+            }
             UsageRecyclerAdapter adapter = new UsageRecyclerAdapter(mActivity, mChannelTitle, usageList);
 
             rvUsageList.setAdapter(adapter);

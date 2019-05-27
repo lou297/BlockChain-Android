@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
 import static com.capstone.blockchainand.Keys.DataKey.*;
 
 public class DonateActivity extends AppCompatActivity {
+    private ImageView ivBackButton;
 
     private TextView tvDonateChannel;
     private TextView tvDonateId;
@@ -54,6 +56,10 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        getSupportActionBar().hide();
+
+        ivBackButton = findViewById(R.id.ivBackButton);
+
         tvDonateChannel = findViewById(R.id.tvDonateChannel);
         tvDonateId = findViewById(R.id.tvDonateId);
         tvDonateGroup = findViewById(R.id.tvDonateGroup);
@@ -61,6 +67,13 @@ public class DonateActivity extends AppCompatActivity {
 
         Button btnDonate = findViewById(R.id.btnDonate);
         Button btnCancel = findViewById(R.id.btnCancel);
+
+        ivBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,33 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/WHITE"
     android:orientation="horizontal"
     android:padding="@dimen/asset_view_padding">
 
     <TextView
-        android:id="@+id/tvAssetNumber"
+        android:id="@+id/tvDonateUserId"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/asset_recycler_text_view_size" />
 
     <TextView
-        android:id="@+id/tvAssetPrevious"
+        android:id="@+id/tvDonateGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="4"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/asset_recycler_text_view_size" />
 
     <TextView
-        android:id="@+id/tvAssetData"
+        android:id="@+id/tvDonateMoney"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/asset_view_padding"
         android:layout_weight="4"
+        android:fontFamily="@font/nanum_pen"
         android:gravity="center"
-        android:textColor="@color/BLACK" />
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/asset_recycler_text_view_size" />
 
 
 </LinearLayout>

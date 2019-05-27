@@ -1,18 +1,35 @@
 <resources>
-    <string name="app_name">BlockChainAnd</string>
+    <string name="app_name">Le:Go</string>
 
     <string name="no_infomation">정보 불러오기 실패</string>
 
     //Activity Label
-    <string name="select_server_activity_label">서버 선택</string>
+    <string name="select_server_activity_label">Le:Go</string>
     <string name="main_activity_label">채널 목록</string>
     <string name="tab_menu_activity_label">채널 상세보기</string>
-    <string name="donate_activity_label">기부</string>
-    <string name="create_activity_label">생성</string>
+    <string name="donate_activity_label">기부하기</string>
+    <string name="create_activity_label">단체생성</string>
+
+    //Server select / login
+    <string name="log_in_id">이메일</string>
+    <string name="log_in_pwd">비밀번호</string>
+
+    <string name="log_in">로그인</string>
+    <string name="regist">회원가입</string>
+
+    //regist
+    <string name="regist_id">이메일</string>
+    <string name="regist_pwd">비밀번호</string>
+    <string name="regist_re_pwd">비밀번호 재확인</string>
+
+    <string name="regist_btn">가입하기</string>
+
+    //Main
+    <string name="search_channel">채널 검색</string>
 
     //MainMenuTab
-    <string name="details_of_usage">사용내역</string>
-    <string name="asset_status">자산현황</string>
+    <string name="details_of_usage">단체현황</string>
+    <string name="asset_status">기부내역</string>
     <string name="group_info">단체정보</string>
 
     //Create, Donate
@@ -20,8 +37,12 @@
     <string name="id">ID</string>
     <string name="group_name">단체</string>
     <string name="money">금액</string>
-    <string name="donate_money">기부금액</string>
+    <string name="create">생성</string>
+    <string name="donate">기부</string>
+    <string name="cancel">취소</string>
 
+    <string name="donate_money">기부금액</string>
+    <string name="money_unit">기부금액(천원)</string>
 
     //ServerBtn
     <string name="local_server">로컬 서버</string>
@@ -29,20 +50,23 @@
     <string name="osaka_server">오사카 서버</string>
 
     //server activity
-    <string name="explain_about_block_chain">프라이빗 블록체인의\n거래내역 신뢰성과 투명성을 통해\n
-    건강한 기부 문화를 만들고자 합니다</string>
+    <string name="lego_title">LE:GO 기부</string>
+    <string name="explain_about_block_chain">프라이빗 블록체인의\n거래내역 신뢰성과 투명성을 통해\n건강한 기부 문화를 만들고자 합니다</string>
 
 
     //Usage Tab Fragment
     <string name="usage_id">ID</string>
     <string name="usage_group">단체</string>
-    <string name="usage_money">금액</string>
+    <string name="usage_money">총 후원금</string>
     <string name="usage_donate">기부하기</string>
+    <string name="usage_make_group">단체생성</string>
 
 
     //Asset activity
-    <string name="asset_number">Number</string>
-    <string name="asset_previous">Previous Hash</string>
-    <string name="asset_date">Data Hash</string>
+    <string name="asset_user">사용자</string>
+    <string name="asset_group">단체 ID</string>
+    <string name="asset_money">기부금</string>
+    
+    <string name="fab_menu_top_string">(단위: 천원)</string>
 
 </resources>

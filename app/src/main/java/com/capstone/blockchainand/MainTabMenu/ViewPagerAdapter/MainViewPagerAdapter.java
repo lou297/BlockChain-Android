@@ -21,8 +21,8 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
                 return new UsageMenuFragment();
             case 1:
                 return new AssetMenuFragment();
-            case 2:
-                return new InfoMenuFragment();
+//            case 2:
+//                return new InfoMenuFragment();
             default:
                 return null;
         }
@@ -30,6 +30,6 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

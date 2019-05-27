@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/title_margin_start"
+            android:layout_weight="9"
+            android:fontFamily="@font/nanum_pen"
+            android:text="@string/regist"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/activity_title" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/title_margin_start"
+            android:background="@drawable/ic_close_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etRegistEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:background="@drawable/gray_edit_text_border"
+            android:fontFamily="@font/nanum_pen"
+            android:hint="@string/regist_id"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/regist_activity_text_size" />
+
+        <EditText
+            android:id="@+id/etRegistPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:background="@drawable/gray_edit_text_border"
+            android:fontFamily="@font/nanum_pen"
+            android:hint="@string/regist_pwd"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/regist_activity_text_size" />
+
+        <EditText
+            android:id="@+id/etRegistRePwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:background="@drawable/gray_edit_text_border"
+            android:fontFamily="@font/nanum_pen"
+            android:hint="@string/regist_re_pwd"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/regist_activity_text_size" />
+
+        <Button
+            android:id="@+id/btnRegist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginTop="@dimen/fab_menu_layout_margin_top"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:background="@drawable/blue_border"
+            android:fontFamily="@font/nanum_pen"
+            android:text="@string/regist_btn"
+            android:textSize="@dimen/regist_activity_text_size" />
+
+    </LinearLayout>
+
+</LinearLayout>

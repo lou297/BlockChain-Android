@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "131936068338",
+    "firebase_url": "https://blockchain-android-f73f8.firebaseio.com",
+    "project_id": "blockchain-android-f73f8",
+    "storage_bucket": "blockchain-android-f73f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131936068338:android:160fc00c19b846ea",
+        "android_client_info": {
+          "package_name": "com.capstone.blockchainand"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131936068338-0u94j0cvm3lr9de4hsg4m8pkjg9t9k84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAp1aiCQifyAq1B6qVRnCDnzrTSz2A7Mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131936068338-0u94j0cvm3lr9de4hsg4m8pkjg9t9k84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -43,7 +43,7 @@ public class UsageRecyclerAdapter extends RecyclerView.Adapter<UsageRecyclerAdap
         final UsageData usageData = usageList.get(i);
 
         if(usageData != null) {
-            viewHolder.tvUsageId.setText(usageData.getKey());
+            viewHolder.tvUsageId.setText(usageData.getKey().substring(7));
             viewHolder.tvUsageGroup.setText(usageData.getRecord().getCompanyname());
             viewHolder.tvUsageMoney.setText(String.valueOf(usageData.getRecord().getMoney()));
 

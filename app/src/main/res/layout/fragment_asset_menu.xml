@@ -2,44 +2,85 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fab_menu_top_layout_size"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/nanum_pen"
+        android:gravity="bottom|end"
+        android:padding="@dimen/fab_menu_top_string_padding"
+        android:text="@string/fab_menu_top_string"
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/asset_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_menu_line_size"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/grayLineColor" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/WHITE"
         android:orientation="horizontal"
         android:paddingStart="@dimen/asset_layout_padding"
         android:paddingTop="@dimen/asset_layout_padding"
         android:paddingEnd="@dimen/asset_layout_padding">
 
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="@dimen/asset_title_view_size"
-            android:layout_weight="2"
+            android:layout_weight="3"
+            android:fontFamily="@font/nanum_pen"
             android:gravity="center"
-            android:text="@string/asset_number"
-            android:textColor="@color/BLACK" />
+            android:text="@string/asset_user"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/asset_text_size"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="@dimen/asset_title_view_size"
             android:layout_weight="4"
+            android:fontFamily="@font/nanum_pen"
             android:gravity="center"
-            android:text="@string/asset_previous"
-            android:textColor="@color/BLACK" />
+            android:text="@string/asset_group"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/asset_text_size"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="@dimen/asset_title_view_size"
             android:layout_weight="4"
+            android:fontFamily="@font/nanum_pen"
             android:gravity="center"
-            android:text="@string/asset_date"
-            android:textColor="@color/BLACK" />
+            android:text="@string/asset_money"
+            android:textColor="@color/textBlue"
+            android:textSize="@dimen/asset_text_size"
+            android:textStyle="bold" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_menu_line_size"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin"
+        android:background="@color/grayLineColor" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvAssetList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/tab_menu_margin"
+        android:layout_marginEnd="@dimen/tab_menu_margin" />
 
 </LinearLayout>

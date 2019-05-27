@@ -2,44 +2,149 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     android:gravity="center_horizontal"
-    android:background="@color/WHITE"
     android:orientation="vertical"
+    android:paddingTop="@dimen/select_server_layout_padding_bottom"
     android:paddingBottom="@dimen/select_server_layout_padding_bottom">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/donate_image_margin"
-        android:layout_weight="3"
-        android:src="@drawable/donate_image"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:fontFamily="@font/nanum_pen"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/lego_title"
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/select_server_title_size" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:src="@drawable/hyperledger2" />
+
+    <TextView
+        android:fontFamily="@font/nanum_pen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:gravity="center"
-        android:padding="@dimen/select_server_text_view_padding"
         android:text="@string/explain_about_block_chain"
-        android:textColor="@color/BLACK"
-        android:textSize="@dimen/select_server_text_size" />
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/textBlue"
+        android:textSize="@dimen/select_server_content_size" />
 
-    <Button
-        android:id="@+id/btnLocalServer"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/local_server" />
+    <LinearLayout
+        android:id="@+id/logInLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnTokyoServer"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/tokyo_server" />
+        <EditText
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/etLogInId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:layout_marginBottom="@dimen/select_server_et_margin_between"
+            android:textSize="@dimen/select_server_content_size"
+            android:background="@drawable/blue_border_light"
+            android:hint="@string/log_in_id"
+            android:padding="@dimen/edit_text_padding" />
 
-    <Button
-        android:id="@+id/btnOsakaServer"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="@string/osaka_server" />
+        <EditText
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/etLogInPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/select_server_content_size"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:layout_marginBottom="@dimen/select_server_et_margin_between"
+            android:background="@drawable/blue_border_light"
+            android:hint="@string/log_in_pwd"
+            android:padding="@dimen/edit_text_padding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/select_server_et_margin_horizon"
+            android:layout_marginEnd="@dimen/select_server_et_margin_horizon"
+            android:orientation="horizontal">
+
+            <TextView
+                android:fontFamily="@font/nanum_pen"
+                android:id="@+id/btnLogIn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/log_in"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/select_server_bottom_text_size" />
+
+            <TextView
+                android:fontFamily="@font/nanum_pen"
+                android:id="@+id/btnRegist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/regist"
+                android:textColor="@color/textBlue"
+                android:textSize="@dimen/select_server_bottom_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/serverSelectLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <Button
+            android:textSize="@dimen/select_server_bottom_text_size"
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/btnLocalServer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_border"
+            android:text="@string/local_server" />
+
+        <Button
+            android:textSize="@dimen/select_server_bottom_text_size"
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/btnTokyoServer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_border"
+            android:text="@string/tokyo_server" />
+
+        <Button
+            android:textSize="@dimen/select_server_bottom_text_size"
+            android:fontFamily="@font/nanum_pen"
+            android:id="@+id/btnOsakaServer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_border"
+            android:text="@string/osaka_server" />
+        <ImageView
+            android:id="@+id/btnLogOut"
+            android:src="@drawable/logout"
+            android:layout_gravity="end"
+            android:layout_width="@dimen/select_server_log_out_icon_size"
+            android:layout_marginEnd="@dimen/select_server_log_out_icon_margin"
+            android:layout_height="@dimen/select_server_log_out_icon_size" />
+    </LinearLayout>
+
 
 </LinearLayout>

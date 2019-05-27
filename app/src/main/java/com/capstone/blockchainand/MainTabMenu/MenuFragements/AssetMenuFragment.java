@@ -22,12 +22,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.capstone.blockchainand.AssetListView.AssetData;
 import com.capstone.blockchainand.AssetListView.AssetRecyclerAdapter;
 import com.capstone.blockchainand.MainActivity;
 import com.capstone.blockchainand.MainTabMenuActivity;
 import com.capstone.blockchainand.R;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +36,7 @@ import java.util.Map;
 
 import static com.capstone.blockchainand.AppHelper.NetworkHelper.requestQueue;
 import static com.capstone.blockchainand.Keys.RequestParamsKey.CHANNEL_NAME;
+import static com.capstone.blockchainand.Keys.RequestParamsKey.TXLIST;
 import static com.capstone.blockchainand.MainActivity.LOAD_SERVER_URL;
 import static com.capstone.blockchainand.Keys.RequestServerUrl.*;
 
@@ -59,6 +60,12 @@ public class AssetMenuFragment extends Fragment {
             mActivity = null;
         }
         super.onDetach();
+    }
+
+    @Override
+    public void onResume() {
+        sendAssetRequest();
+        super.onResume();
     }
 
     @Nullable
@@ -100,7 +107,7 @@ public class AssetMenuFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put(CHANNEL_NAME, mChannelTitle);
+                params.put("", mChannelTitle);
                 return params;
             }
         };
@@ -109,23 +116,34 @@ public class AssetMenuFragment extends Fragment {
     }
 
     private void handleResponse(String response) {
-        Log.d("Asset Result", response);
-        Gson gson = new Gson();
-        AssetData[] assetResult = gson.fromJson(response, AssetData[].class);
-        ArrayList<AssetData> assetList = new ArrayList<>(Arrays.asList(assetResult));
 
-        setRecyclerView(assetList);
+//        Log.d("Asset Result", response);
+        Log.d("Asset Result Channel", mChannelTitle);
+        Gson gson = new Gson();
+        ArrayList<ArrayList<String>> totalList = gson.fromJson(response, new TypeToken<ArrayList<ArrayList<String>>>(){}.getType());
+
+        ArrayList<ArrayList<String>> filterList = new ArrayList<ArrayList<String>>();
+        for(ArrayList<String> iter : totalList) {
+            if(iter.get(0).equals("donateMoney")) {
+                filterList.add(iter);
+            }
+        }
+//
+        setRecyclerView(filterList);
     }
 
-    private void setRecyclerView(ArrayList<AssetData> assetList) {
-        if(assetList != null) {
+    private void setRecyclerView(ArrayList<ArrayList<String>> donateList) {
+        if(donateList != null) {
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mActivity);
             rvAssetList.setLayoutManager(layoutManager);
 
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mActivity, ((LinearLayoutManager) layoutManager).getOrientation());
-            rvAssetList.addItemDecoration(dividerItemDecoration);
+            if(rvAssetList.getItemDecorationCount() == 0){
+                DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mActivity, ((LinearLayoutManager) layoutManager).getOrientation());
+                rvAssetList.addItemDecoration(dividerItemDecoration);
+            }
 
-            AssetRecyclerAdapter adapter = new AssetRecyclerAdapter(mActivity, assetList);
+
+            AssetRecyclerAdapter adapter = new AssetRecyclerAdapter(mActivity, donateList);
 
             rvAssetList.setAdapter(adapter);
         }
